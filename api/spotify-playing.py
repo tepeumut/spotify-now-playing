@@ -83,10 +83,13 @@ def makeSVG(data):
 
     if data == {}:
         content_bar = ""
-        recent_plays = recentlyPlayed()
-        size_recent_play = len(recent_plays["items"])
-        idx = random.randint(0, size_recent_play - 1)
-        item = recent_plays["items"][idx]["track"]
+        dataDict = {
+            "content_bar": contentBar,
+            "css_bar": barCSS,
+            "artist_name": "",
+            "img": " ",
+        }
+        return render_template("spotify.html.j2", **dataDict)
     else:
         item = data["item"]
 
